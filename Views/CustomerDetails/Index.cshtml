@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CRUD.Models.CustomerDetails>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustAdd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustMobNo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustAdd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustMobNo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CustId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CustId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CustId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
